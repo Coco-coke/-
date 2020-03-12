@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <iostream>
+
+
+int main(void)
+{
+    int year1,year2,month1,month2,day1,day2,i,j,a,b,b1,b2,y,x,n,IQ;	
+  printf("请输入您的出生日期\n");                  //输入出生日期
+  scanf("%d%d%d",&year1,&month1,&day1);
+  printf("请输入您需要查询的日期\n");
+  scanf("%d%d%d",&year2,&month2,&day2);
+  j=0;
+  a=1;
+  for(i=year1;i<=year2;i++)                        //计算有几个闰年
+  {
+  if( (i%4==0 && i%100!=0)||(i%400==0) )
+	  j=j+1;
+  else
+	  j=j+0;
+  }
+  y=(year2-year1)*365 + j;
+  int m[12]={31,28,31,30,31,30,31,31,30,31,30,31};
+  if(a==month1)              b1=day1;
+  else if(month1==2)         b1=m[0]+day1;
+  else if(month1==3)         b1=m[0]+m[1]+day1;
+  else if(month1==4)         b1=m[0]+m[1]+m[2]+day1;                          //计算1月1日到生日的天数，b1
+  else if(month1==5)         b1=m[0]+m[1]+m[2]+m[3]+day1;
+  else if(month1==6)         b1=m[0]+m[1]+m[2]+m[3]+m[4]+day1;
+  else if(month1==7)         b1=m[0]+m[1]+m[2]+m[3]+m[4]+m[5]+day1;
+  else if(month1==8)         b1=m[0]+m[1]+m[2]+m[3]+m[4]+m[5]+m[6]+day1;
+  else if(month1==9)         b1=m[0]+m[1]+m[2]+m[3]+m[4]+m[5]+m[6]+m[7]+day1;
+  else if(month1==10)        b1=m[0]+m[1]+m[2]+m[3]+m[4]+m[5]+m[6]+m[7]+m[8]+day1;
+  else if(month1==11)        b1=m[0]+m[1]+m[2]+m[3]+m[4]+m[5]+m[6]+m[7]+m[8]+m[9]+day1;
+  else if(month1==12)        b1=m[0]+m[1]+m[2]+m[3]+m[4]+m[5]+m[6]+m[7]+m[8]+m[9]+m[10]+day1;
+ 
+  else printf("您输入错误，请重新开始\n");
+
+  if(a==month2)              b2=day2;
+  else if(month2==2)         b2=m[0]+day2;
+  else if(month2==3)         b2=m[0]+m[1]+day2;
+  else if(month2==4)         b2=m[0]+m[1]+m[2]+day2;                          //计算1月1日到查询日期的天数，b2
+  else if(month2==5)         b2=m[0]+m[1]+m[2]+m[3]+day2;
+  else if(month2==6)         b2=m[0]+m[1]+m[2]+m[3]+m[4]+day2;
+  else if(month2==7)         b2=m[0]+m[1]+m[2]+m[3]+m[4]+m[5]+day2;
+  else if(month2==8)         b2=m[0]+m[1]+m[2]+m[3]+m[4]+m[5]+m[6]+day2;
+  else if(month2==9)         b2=m[0]+m[1]+m[2]+m[3]+m[4]+m[5]+m[6]+m[7]+day2;
+  else if(month2==10)        b2=m[0]+m[1]+m[2]+m[3]+m[4]+m[5]+m[6]+m[7]+m[8]+day2;
+  else if(month2==11)        b2=m[0]+m[1]+m[2]+m[3]+m[4]+m[5]+m[6]+m[7]+m[8]+m[9]+day2;
+  else if(month2==12)        b2=m[0]+m[1]+m[2]+m[3]+m[4]+m[5]+m[6]+m[7]+m[8]+m[9]+m[10]+day2;
+ 
+  else printf("您输入错误，请重新开始\n"); 
+  b=y-b1+b2 ;       //b是出生日期至查询日期的总间隔天数
+	  printf("则总间隔天数为%d\n",b);
+IQ=b%33;
+	  if(IQ==0)  printf("您的智力处于周期日！\n");
+	  else if(IQ<17)  printf("您的智力处于高潮日！\n");
+	  else if(IQ==17)  printf("您的智力处于临界日！\n");
+	  else if(IQ>17)  printf("您的智力处于低潮期！\n");
+x=b%28;
+	  1<=x<28;
+	  if(x<=3)
+		  printf("体力处于临界期\n");
+	  else if(x<=12)
+		  printf("体力处于低潮期\n");
+	  else if(x<=14)
+		  printf("体力处于高潮期\n");
+	  else if(x<=26)
+	      printf("体力处于低潮期\n");
+	  else 
+		  printf("体力处于临界期\n");
+n=b%28;
+  if(n==0)            printf("您的情绪处在周期日！\n");
+  else if(n<14)       printf("您的情绪处于高潮期！\n");
+  else if(n==14)      printf("您的情绪处于临界日！\n");
+  else if(n>14)       printf("您的情绪处于低潮期！\n");
+system("pause");
+return 0;
+}
